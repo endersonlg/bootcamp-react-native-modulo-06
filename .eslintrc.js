@@ -9,6 +9,7 @@ module.exports = {
     'prettier/react'
   ],
   globals: {
+    __DEV__: 'readonly',
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
   },
