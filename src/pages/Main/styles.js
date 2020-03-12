@@ -93,6 +93,6 @@ export const DeleteButton = styled(RectButton)`
   align-items: center;
   justify-content: center;
 `;
-export const Teste = styled.View`
+export const ContainerDelete = styled.View`
   flex-direction: row-reverse;
 `;

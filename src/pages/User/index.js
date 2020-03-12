@@ -38,7 +38,7 @@ export default class User extends Component {
     const { navigation } = this.props;
     const user = navigation.getParam('user');
 
-    const response = await api.get(`/users/${user.login}/starred?page=1`);
+    const response = await api.get(`/users/${user.login}/starred`);
 
     this.setState({ stars: response.data, loading: false });
   }

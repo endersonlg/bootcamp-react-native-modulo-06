@@ -18,7 +18,7 @@ import {
   ProfileButton,
   ProfileButtonText,
   DeleteButton,
-  Teste,
+  ContainerDelete,
 } from './styles';
 
 export default class Main extends Component {
@@ -119,11 +119,11 @@ export default class Main extends Component {
           keyExtractor={user => user.login}
           renderItem={({ item }) => (
             <>
-              <Teste>
+              <ContainerDelete>
                 <DeleteButton onPress={() => this.handleDeleteUser(item)}>
                   <Icon name="delete" size={20} color="#FFF" />
                 </DeleteButton>
-              </Teste>
+              </ContainerDelete>
               <User>
                 <Avatar source={{ uri: item.avatar }} />
                 <Name>{item.name}</Name>
