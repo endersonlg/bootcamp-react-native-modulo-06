@@ -17,6 +17,8 @@ import {
   Bio,
   ProfileButton,
   ProfileButtonText,
+  DeleteButton,
+  Teste,
 } from './styles';
 
 export default class Main extends Component {
@@ -72,6 +74,17 @@ export default class Main extends Component {
     Keyboard.dismiss();
   };
 
+  handleDeleteUser = userDelete => {
+    const { users } = this.state;
+    const auxUsers = [];
+    users.map(user => {
+      if (user !== userDelete) {
+        auxUsers.push(user);
+      }
+    });
+    this.setState({ users: auxUsers });
+  };
+
   handleNavigate = user => {
     const { navigation } = this.props;
 
@@ -105,15 +118,22 @@ export default class Main extends Component {
           data={users}
           keyExtractor={user => user.login}
           renderItem={({ item }) => (
-            <User>
-              <Avatar source={{ uri: item.avatar }} />
-              <Name>{item.name}</Name>
-              <Bio>{item.bio}</Bio>
+            <>
+              <Teste>
+                <DeleteButton onPress={() => this.handleDeleteUser(item)}>
+                  <Icon name="delete" size={20} color="#FFF" />
+                </DeleteButton>
+              </Teste>
+              <User>
+                <Avatar source={{ uri: item.avatar }} />
+                <Name>{item.name}</Name>
+                <Bio>{item.bio}</Bio>
 
-              <ProfileButton onPress={() => this.handleNavigate(item)}>
-                <ProfileButtonText>Ver Perfil</ProfileButtonText>
-              </ProfileButton>
-            </User>
+                <ProfileButton onPress={() => this.handleNavigate(item)}>
+                  <ProfileButtonText>Ver Perfil</ProfileButtonText>
+                </ProfileButton>
+              </User>
+            </>
           )}
         />
       </Container>
